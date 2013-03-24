@@ -1,0 +1,27 @@
+===========
+Django for Proyotyping
+===========
+
+
+This project should ease the creation of HTML prototypes and static pages using
+the django template system. It will also allow front end developers to create
+django templates which can later be easy implemented in the project structure.
+
+Usage
+===========
+Clone this project to you local system
+
+python django-admin.py startproject --template=<path_to_prototyping template> <project_name>
+
+Example:
+python django-admin.py startproject --template=~/templates/prototyping_template new_project
+
+
+The default template uses the sekizai module which can be installed via the
+requirements.txt file.
+
+
+
+To Do
+===========
+Implement django-compressor and allow usage of SCSS

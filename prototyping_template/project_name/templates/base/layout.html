@@ -1,0 +1,59 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="SHORTCUT ICON" type="image/x-icon" href="{{ STATIC_URL }}project_name/img/favicon.ico" />
+
+    <title>{% trans "Project_name" %} | {% block title %}{% if page_title %}{{ page_title }}{% endif %}{%endblock%}</title>
+
+    <meta name="description" content="{% block meta_description %}Default site description{% endblock %}" />
+    <meta name="author" content="Zparkl">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% addtoblock 'css' %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}project_name/css/style.css" type="text/x-sass">
+    {% endaddtoblock %}
+
+    {% render_block 'css' %}
+</head>
+
+{% addtoblock 'js' %}
+    <script src="{{ STATIC_URL }}project_name/js/modernizr-2.6.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+{% endaddtoblock %}
+
+{% addtoblock 'js_global_vars' %}
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{ google_analytics_code }}']);
+    _gaq.push(['_setDomainName', 'example.com']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+{% endaddtoblock %}
+
+
+<body>
+{% block body %}
+    {% block content %}
+    {% endblock %}
+{% endblock %}
+
+<script type="text/javascript">
+    {% render_block 'js_global_vars' %}
+</script>
+
+{% render_block 'js' %}
+
+</body>
+
+</html>

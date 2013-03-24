@@ -1,0 +1,6 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+    <h1>{% trans 'Home page' %}</h1>
+    <a href="{% url 'page' 'page' %}">Static page</a>
+{% endblock %}
