@@ -11,15 +11,21 @@ Usage
 ===========
 Clone this project to you local system
 
-python django-admin.py startproject --template=<path_to_prototyping template> <project_name>
+python django-admin.py startproject --template=<path_to_prototyping template> <project_name> .
 
 Example:
-python django-admin.py startproject --template=~/templates/prototyping_template new_project
+python django-admin.py startproject --template=~/templates/prototyping_template new_project .
 
 
 The default template uses the sekizai module which can be installed via the
 requirements.txt file.
 
+To get the slug of the page you are currently on use {{ request.page }} in your
+templates. For home page the slug is 'home'.
+
+For if there is not a template matching the slug and the DEBUG is True the code
+will raise TemplateDoesNotExist exception. If DEBUG is False a 404 page will be
+returned.
 
 
 To Do
